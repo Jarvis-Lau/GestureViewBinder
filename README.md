@@ -31,4 +31,4 @@ gestureViewBinder.setFullGroup(true)
 
 ![TextView](https://github.com/GeniusLiu/GestureViewBinder/blob/master/app/src/main/res/drawable/textview.gif) 
 
-![ImageView](https://github.com/GeniusLiu/GestureViewBinder/blob/master/app/src/main/res/drawable/imageview400.gif)
+![ImageView](https://github.com/GeniusLiu/GestureViewBinder/blob/master/app/src/main/res/drawable/imageview.gif)
