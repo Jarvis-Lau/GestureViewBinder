@@ -4,7 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/DestureViewBinderDemo.iml" filepath="$PROJECT_DIR$/DestureViewBinderDemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/destureviewbinder/destureviewbinder.iml" filepath="$PROJECT_DIR$/destureviewbinder/destureviewbinder.iml" />
+      <module fileurl="file://$PROJECT_DIR$/gestureviewbinder/destureviewbinder.iml" filepath="$PROJECT_DIR$/gestureviewbinder/destureviewbinder.iml" />
     </modules>
   </component>
 </project>
