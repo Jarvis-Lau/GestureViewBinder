@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
         targetView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 Toast.makeText(MainActivity.this, "click", Toast.LENGTH_SHORT).show();
             }
         });
