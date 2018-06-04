@@ -29,4 +29,6 @@ GestureViewBinder.bind(this, groupView, targetView);
 gestureViewBinder.setFullGroup(true)
 ```
 
-<center>![这里写图片描述](https://img-blog.csdn.net/20180604191121813?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3c4NTUyMjc=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)   ![这里写图片描述](https://img-blog.csdn.net/20180604191205687?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3c4NTUyMjc=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)</center>
+![TextView](https://github.com/GeniusLiu/GestureViewBinder/blob/master/app/src/main/res/drawable/textview.gif) 
+
+![ImageView](https://github.com/GeniusLiu/GestureViewBinder/blob/master/app/src/main/res/drawable/imageview400.gif)
