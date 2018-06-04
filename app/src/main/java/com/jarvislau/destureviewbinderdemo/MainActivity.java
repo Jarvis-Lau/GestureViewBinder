@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -17,15 +19,15 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        TextView tvTarget = findViewById(R.id.tvTarget);
-        RelativeLayout rlGroup = findViewById(R.id.rlGroup);
-        tvTarget.setOnClickListener(new View.OnClickListener() {
+        ImageView targetView = findViewById(R.id.targetView);
+        LinearLayout groupView = findViewById(R.id.groupView);
+        targetView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Toast.makeText(MainActivity.this, "click", Toast.LENGTH_SHORT).show();
             }
         });
-        GestureViewBinder.bind(this, rlGroup, tvTarget).setFullGroup(true);
+        GestureViewBinder.bind(this, groupView, targetView).setFullGroup(true);
     }
 
 }

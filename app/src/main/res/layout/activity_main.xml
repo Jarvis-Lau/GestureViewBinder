@@ -1,39 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/groupView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#333333"
     android:gravity="center"
     android:orientation="vertical"
     tools:context="com.jarvislau.destureviewbinderdemo.MainActivity">
 
-    <RelativeLayout
-        android:id="@+id/rlGroup"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="center"
-        android:background="#AAAAAA"
-        android:orientation="vertical">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="groupView"
-            android:textColor="#FFFFFF"
-            android:textSize="18dp" />
-
-        <TextView
-            android:id="@+id/tvTarget"
-            android:layout_width="200dp"
-            android:layout_height="200dp"
-            android:layout_centerInParent="true"
-            android:layout_gravity="center"
-            android:background="@mipmap/ic_launcher"
-            android:text="targetView"
-            android:textColor="#FFFFFF"
-            android:textSize="18dp"
-            tools:ignore="ContentDescription" />
-
-    </RelativeLayout>
+    <ImageView
+        android:id="@+id/targetView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/photo"
+        tools:ignore="ContentDescription" />
 
 </LinearLayout>
