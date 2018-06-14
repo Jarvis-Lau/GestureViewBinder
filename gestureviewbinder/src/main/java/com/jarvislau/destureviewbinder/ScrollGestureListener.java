@@ -45,44 +45,54 @@ public class ScrollGestureListener extends GestureDetector.SimpleOnGestureListen
     @Override
     public boolean onScroll(MotionEvent e1, MotionEvent e2, float distanceX, float distanceY) {
 
-        if (!isFullGroup || scale > 1) {
+        distanceX = -distanceX;
+        distanceY = -distanceY;
 
-            distanceX = -distanceX;
-            distanceY = -distanceY;
-
+        if (isFullGroup || scale > 1) {
             if (viewWidthReal > groupWidth) {
-                //最大移动距离全部为正数，所以需要通过判断distanceX的正负，来判断是向左移动还是向右移动，
-                // 然后通过取distanceX的绝对值来和相应移动方向的最大移动距离比较
-                if ((distanceX < 0 && Math.abs(distanceXTemp + distanceX) < maxTranslationLeft)
-                        || (distanceX > 0 && distanceXTemp + distanceX < maxTranslationRight)) {
-                    distanceXTemp += distanceX;
-                    targetView.setTranslationX(distanceXTemp);
-                    //如果超出边界，就移动到最大距离，防止边界有剩余量
-                } else if ((distanceX < 0 && Math.abs(distanceXTemp + distanceX) > maxTranslationLeft)) {
-                    distanceXTemp = -maxTranslationLeft;
-                    targetView.setTranslationX(-maxTranslationLeft);
-                } else if ((distanceX > 0 && distanceXTemp + distanceX > maxTranslationRight)) {
-                    distanceXTemp = maxTranslationRight;
-                    targetView.setTranslationX(maxTranslationRight);
-                }
+                translationXOnScrollEvent(distanceX);
             }
-
             if (viewHeightReal > groupHeight) {
-                if ((distanceY < 0 && Math.abs(distanceYTemp + distanceY) < maxTranslationTop)
-                        || (distanceY > 0 && distanceYTemp + distanceY < maxTranslationBottom)) {
-                    distanceYTemp += distanceY;
-                    targetView.setTranslationY(distanceYTemp);
-                    //如果超出边界，就移动到最大距离，防止边界有剩余量
-                } else if ((distanceY < 0 && Math.abs(distanceYTemp + distanceY) > maxTranslationTop)) {
-                    distanceYTemp = -maxTranslationTop;
-                    targetView.setTranslationY(-maxTranslationTop);
-                } else if ((distanceY > 0 && distanceYTemp + distanceY > maxTranslationBottom)) {
-                    distanceYTemp = maxTranslationBottom;
-                    targetView.setTranslationY(maxTranslationBottom);
-                }
+                translationYOnScrollEvent(distanceY);
             }
+        } else {
+            translationXOnScrollEvent(distanceX);
+            translationYOnScrollEvent(distanceY);
         }
+
         return super.onScroll(e1, e2, distanceX, distanceY);
+    }
+
+    private void translationXOnScrollEvent(float distanceX) {
+        //最大移动距离全部为正数，所以需要通过判断distanceX的正负，来判断是向左移动还是向右移动，
+        // 然后通过取distanceX的绝对值来和相应移动方向的最大移动距离比较
+        if ((distanceX < 0 && Math.abs(distanceXTemp + distanceX) < maxTranslationLeft)
+                || (distanceX > 0 && distanceXTemp + distanceX < maxTranslationRight)) {
+            distanceXTemp += distanceX;
+            targetView.setTranslationX(distanceXTemp);
+            //如果超出边界，就移动到最大距离，防止边界有剩余量
+        } else if ((distanceX < 0 && Math.abs(distanceXTemp + distanceX) > maxTranslationLeft)) {
+            distanceXTemp = -maxTranslationLeft;
+            targetView.setTranslationX(-maxTranslationLeft);
+        } else if ((distanceX > 0 && distanceXTemp + distanceX > maxTranslationRight)) {
+            distanceXTemp = maxTranslationRight;
+            targetView.setTranslationX(maxTranslationRight);
+        }
+    }
+
+    private void translationYOnScrollEvent(float distanceY) {
+        if ((distanceY < 0 && Math.abs(distanceYTemp + distanceY) < maxTranslationTop)
+                || (distanceY > 0 && distanceYTemp + distanceY < maxTranslationBottom)) {
+            distanceYTemp += distanceY;
+            targetView.setTranslationY(distanceYTemp);
+            //如果超出边界，就移动到最大距离，防止边界有剩余量
+        } else if ((distanceY < 0 && Math.abs(distanceYTemp + distanceY) > maxTranslationTop)) {
+            distanceYTemp = -maxTranslationTop;
+            targetView.setTranslationY(-maxTranslationTop);
+        } else if ((distanceY > 0 && distanceYTemp + distanceY > maxTranslationBottom)) {
+            distanceYTemp = maxTranslationBottom;
+            targetView.setTranslationY(maxTranslationBottom);
+        }
     }
 
     @Override
