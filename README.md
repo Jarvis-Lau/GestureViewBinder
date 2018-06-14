@@ -16,7 +16,7 @@ allprojects {
 ```
 然后在项目的build.grale中添加依赖
 ```java
-implementation 'com.github.GeniusLiu:GestureViewBinder:v1.0.0'
+implementation 'com.github.GeniusLiu:GestureViewBinder:1.0.1'
 ```
 
 最后通过一行代码使用
