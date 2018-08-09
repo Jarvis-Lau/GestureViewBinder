@@ -55,7 +55,9 @@ public class GestureViewBinder {
                         scaleGestureListener.onActionUp();
                     }
                     scrollGestureListener.setScale(scaleGestureListener.getScale());
-                    onScaleListener.onScale(scaleGestureListener.getScale());
+                    if (onScaleListener != null) {
+                        onScaleListener.onScale(scaleGestureListener.getScale());
+                    }
                     return scaleGestureBinder.onTouchEvent(event);
                 }
                 return false;
