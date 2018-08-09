@@ -27,7 +27,14 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this, "click", Toast.LENGTH_SHORT).show();
             }
         });
-        GestureViewBinder.bind(this, groupView, targetView).setFullGroup(true);
+        GestureViewBinder bind = GestureViewBinder.bind(this, groupView, targetView);
+        bind.setFullGroup(true);
+        bind.setOnScaleListener(new GestureViewBinder.OnScaleListener() {
+            @Override
+            public void onScale(float scale) {
+                Log.i("TAG", scale + "");
+            }
+        });
     }
 
 }

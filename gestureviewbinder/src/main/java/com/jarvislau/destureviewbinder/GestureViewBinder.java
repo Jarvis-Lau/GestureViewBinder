@@ -27,6 +27,8 @@ public class GestureViewBinder {
     private ViewGroup viewGroup;
     private boolean isScaleEnd = true;
 
+    private OnScaleListener onScaleListener;
+
     private boolean isFullGroup = false;
 
     public static GestureViewBinder bind(Context context, ViewGroup viewGroup, View targetView) {
@@ -53,6 +55,7 @@ public class GestureViewBinder {
                         scaleGestureListener.onActionUp();
                     }
                     scrollGestureListener.setScale(scaleGestureListener.getScale());
+                    onScaleListener.onScale(scaleGestureListener.getScale());
                     return scaleGestureBinder.onTouchEvent(event);
                 }
                 return false;
@@ -95,5 +98,13 @@ public class GestureViewBinder {
         scaleGestureListener.setFullGroup(fullGroup);
         scrollGestureListener.setFullGroup(fullGroup);
         fullGroup();
+    }
+
+    public void setOnScaleListener(OnScaleListener onScaleListener) {
+        this.onScaleListener = onScaleListener;
+    }
+
+    public interface OnScaleListener {
+        void onScale(float scale);
     }
 }
